@@ -12,16 +12,16 @@ public class Player extends Actor
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    GreenfootImage[] run = new GreenfootImage[10];
+    GreenfootImage[] idle = new GreenfootImage[10];
     
     public Player()
     {
         for(int i = 1; i < 10; i++)
         {
-            run[i] = new GreenfootImage("images/freeknight/png/Run" + "(" + i + ")" + ".png");
+            idle[i] = new GreenfootImage("/images/freeknight/png/Idle" + "(" + i + ")" + ".png");
             
         }
-        setImage(run[0]);
+        setImage(idle[0]);
     }
     
     public void act() 
