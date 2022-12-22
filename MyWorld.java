@@ -17,6 +17,9 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1, false);
+        
+        Player player = new Player();
+        addObject(player, 250 ,315);
 
         prepare();
     }
@@ -38,6 +41,12 @@ public class MyWorld extends World
         
         Ground1 ground1C = new Ground1();
         addObject(ground1C,442,673);
+        
+        Ground1 ground1D = new Ground1();
+        addObject(ground1D,569,673);
+        
+        Ground1 ground1E = new Ground1();
+        addObject(ground1E,696,673);
         
         
     }
