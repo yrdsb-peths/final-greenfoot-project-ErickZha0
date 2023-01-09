@@ -16,12 +16,12 @@ public class Player extends Actor
     
     public Player()
     {
-        for(int i = 1; i < 10; i++)
+        for(int i = 0; i < 9; i++)
         {
-            idle[i] = new GreenfootImage("/images/freeknight/png/Idle" + "(" + i + ")" + ".png");
+            idle[i] = new GreenfootImage("images/freeknight/png/Idle0"  + i +  ".png");
             
         }
-        setImage(idle[0]);
+        
     }
     
     public void act() 
@@ -34,6 +34,7 @@ public class Player extends Actor
         else if(Greenfoot.isKeyDown("right"))
         {
             move(3);
+            
             
         }
         
