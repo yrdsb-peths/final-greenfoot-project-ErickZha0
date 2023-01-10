@@ -22,7 +22,7 @@ public class Player extends Actor
         for(int i = 0; i < 9; i++)
         {
             idleRight[i] = new GreenfootImage("images/freeknight/png/Idle0"  + i +  ".png");
-            idleRight[i].scale(100, 100);
+            idleRight[i].scale(150, 150);
             
         }
         
@@ -30,7 +30,7 @@ public class Player extends Actor
         {
             idleLeft[i] = new GreenfootImage("images/freeknight/png/Idle0" + i + ".png");    
             idleLeft[i].mirrorHorizontally();
-            idleLeft[i].scale(100, 100);   
+            idleLeft[i].scale(150, 150);   
         }
         
         animationTimer.mark();
