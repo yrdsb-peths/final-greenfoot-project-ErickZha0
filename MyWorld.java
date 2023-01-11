@@ -19,7 +19,7 @@ public class MyWorld extends World
         super(1000, 700, 1, false);
         
         Player player = new Player();
-        addObject(player, 700 ,540);
+        addObject(player, 100 ,520);
 
         prepare();
     }
