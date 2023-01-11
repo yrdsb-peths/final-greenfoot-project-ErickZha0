@@ -39,7 +39,7 @@ public class Player extends Actor
     
     public void checkKeys()
     {
-        if(Greenfoot.isKeyDown("z") && jumping == false)
+        if(Greenfoot.isKeyDown("space") && jumping == false)
         {
             jump();
         }
