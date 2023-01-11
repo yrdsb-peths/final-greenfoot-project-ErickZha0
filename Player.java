@@ -69,25 +69,25 @@ public class Player extends Actor
         int spriteHeight = getImage().getHeight();
         int lookForGround = spriteHeight/2;
         
-        Actor ground = getOneObjectAtOffset(0, lookForGround, Ground1.class);
-        if(ground == null)
+        Actor Ground1 = getOneObjectAtOffset(0, lookForGround, Ground1.class);
+        if(Ground1 == null)
         {
             jumping = true;
             return false;
         }
         else    
         {
-            moveToGround(ground);
+            moveToGround(Ground1);
             return true;
         }
     }
     
-    public void moveToGround(Actor ground1)
+    public void moveToGround(Actor Ground1)
     {
-        int ground1Height = ground1.getImage().getHeight();
-        int newY = ground1.getY() - (ground1Height + getImage().getHeight())/2;
+        int ground1Height = Ground1.getImage().getHeight();
+        int newY = Ground1.getY() - (ground1Height + getImage().getHeight())/2;
         
-        setLocation(getX(), newY);
+        setLocation(getX(),newY);
         
         jumping = false;
     }
