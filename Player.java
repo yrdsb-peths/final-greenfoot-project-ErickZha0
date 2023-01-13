@@ -25,13 +25,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         {
             if(Greenfoot.isKeyDown("left"))
             {
-                move(-3);
+                move(-7);
                 facing = "left";
                 animateElephant();
             } 
             else if(Greenfoot.isKeyDown("right"))
             {
-                move(3);
+                move(7);
                 facing = "right";
                 animateElephant();
             }
@@ -45,14 +45,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
            for(int i = 0; i < 8; i++)
             {
                 idleRight[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
-                idleRight[i].scale(150, 150);
+                idleRight[i].scale(160, 160);
              }
        
            for(int i = 0; i < idleLeft.length; i ++)
             {
                 idleLeft[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
                 idleLeft[i].mirrorHorizontally();
-                idleLeft[i].scale(150, 150);   
+                idleLeft[i].scale(160, 160);   
             }
         
            animationTimer.mark();
@@ -93,7 +93,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         private void jump()
         {
-            setVSpeed(-16);
+            setVSpeed(-25);
             fall();
         }
         
