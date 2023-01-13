@@ -52,6 +52,13 @@ public class MyWorld extends World
         Ground1 ground1E = new Ground1();
         addObject(ground1E,696,673);
         
+        Ground1 ground1F = new Ground1();
+        addObject(ground1E,823,673);
+        
+        Ground1 ground1G = new Ground1();
+        addObject(ground1E,950,673);
+
+        
         
     }
 
