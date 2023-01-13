@@ -45,14 +45,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
            for(int i = 0; i < 8; i++)
             {
                 idleRight[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
-                idleRight[i].scale(100, 100);
+                idleRight[i].scale(150, 150);
              }
        
            for(int i = 0; i < idleLeft.length; i ++)
             {
                 idleLeft[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
                 idleLeft[i].mirrorHorizontally();
-                idleLeft[i].scale(100, 100);   
+                idleLeft[i].scale(150, 150);   
             }
         
            animationTimer.mark();
@@ -63,7 +63,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         public void animateElephant()
         {
             //elephant animations
-            if(animationTimer.millisElapsed() < 300)
+            if(animationTimer.millisElapsed() < 50)
             {
                 return;
             }
