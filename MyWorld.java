@@ -36,30 +36,31 @@ public class MyWorld extends World
     {
         Ground1 ground1 = new Ground1();
         addObject(ground1,61,673);
-        
+
         Ground1 ground1A = new Ground1();
         addObject(ground1A,188,673);
-        
+
         Ground1 ground1B = new Ground1();
         addObject(ground1B,315,673);
-        
+
         Ground1 ground1C = new Ground1();
         addObject(ground1C,442,673);
-        
-        Ground1 ground1D = new Ground1();
-        addObject(ground1D,569,673);
-        
-        Ground1 ground1E = new Ground1();
-        addObject(ground1E,696,673);
-        
-        Ground1 ground1F = new Ground1();
-        addObject(ground1E,823,673);
-        
-        Ground1 ground1G = new Ground1();
-        addObject(ground1E,950,673);
 
-        
-        
+
+        Ground1 ground1F = new Ground1();
+        addObject(ground1F,823,673);
+
+
+
+        Crate crate = new Crate();
+        addObject(crate,467,565);
+        crate.setLocation(473,568);
+        Crate crate2 = new Crate();
+        addObject(crate2,466,482);
+        crate2.setLocation(469,495);
+        Crate crate3 = new Crate();
+        addObject(crate3,350,556);
+        crate3.setLocation(392,571);
     }
 
 }

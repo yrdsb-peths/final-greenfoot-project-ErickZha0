@@ -25,13 +25,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         {
             if(Greenfoot.isKeyDown("left"))
             {
-                move(-7);
+                move(-10);
                 facing = "left";
                 animateElephant();
             } 
             else if(Greenfoot.isKeyDown("right"))
             {
-                move(7);
+                move(10);
                 facing = "right";
                 animateElephant();
             }
