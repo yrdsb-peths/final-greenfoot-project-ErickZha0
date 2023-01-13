@@ -1,135 +1,134 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class Player extends Actor
-{
-    /**
-     * Act - do whatever the Player wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    GreenfootImage[] runRight= new GreenfootImage[9];
-    GreenfootImage[] runLeft= new GreenfootImage[9];
-    GreenfootImage[] idleRight= new GreenfootImage[9];
-    GreenfootImage[] idleLeft= new GreenfootImage[9];
-    String facing = "right";
-    SimpleTimer animationTimer = new SimpleTimer();
-    
-    public Player()
-    {
-        for(int i = 0; i < 9; i++)
+* Write a description of class Player here.
+* 
+* @author (your name) 
+* @version (a version number or a date)
+*/
+    public class Player extends Actor
+    {   
+        private static final int speed = 7; // running speed (sideways)
+        private int vSpeed = 0; 
+        private static final int acceleration = 2; 
+        GreenfootImage[] idleRight= new GreenfootImage[8];
+        GreenfootImage[] idleLeft= new GreenfootImage[8];
+        String facing = "right";
+        SimpleTimer animationTimer = new SimpleTimer();
+        
+        /**
+         * Act - do whatever the Player wants to do. This method is called whenever
+         * the 'Act' or 'Run' button gets pressed in the environment.
+         */
+        
+        public void act()
         {
-            runRight[i] = new GreenfootImage("images/freeknight/png/Run0"  + i +  ".png");
-            runRight[i].scale(150, 150);
+            if(Greenfoot.isKeyDown("left"))
+            {
+                move(-3);
+                facing = "left";
+                animateElephant();
+            } 
+            else if(Greenfoot.isKeyDown("right"))
+            {
+                move(3);
+                facing = "right";
+                animateElephant();
+            }
+            checkFall();
+            jumpingPlayer();
+        
+        }
+        
+        public Player()
+        {
+           for(int i = 0; i < 8; i++)
+            {
+                idleRight[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
+                idleRight[i].scale(150, 150);
+             }
+       
+           for(int i = 0; i < idleLeft.length; i ++)
+            {
+                idleLeft[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
+                idleLeft[i].mirrorHorizontally();
+                idleLeft[i].scale(150, 150);   
+            }
+        
+           animationTimer.mark();
+           setImage(idleRight[0]);
+            
+        }
+        int imageIndex = 0;
+        public void animateElephant()
+        {
+            //elephant animations
+            if(animationTimer.millisElapsed() < 50)
+            {
+                return;
+            }
+            animationTimer.mark();
+            if(facing.equals("right"))
+            {
+                setImage(idleRight[imageIndex]);
+                imageIndex = (imageIndex + 1) % idleRight.length;    
+            }
+            else
+            {
+                setImage(idleLeft[imageIndex]);
+                imageIndex = (imageIndex + 1) % idleLeft.length;    
+            }
             
         }
         
-        for(int i = 0; i < runLeft.length; i ++)
+        public void jumpingPlayer()
         {
-            runLeft[i] = new GreenfootImage("images/freeknight/png/Run0" + i + ".png");    
-            runLeft[i].mirrorHorizontally();
-            runLeft[i].scale(150, 150);   
+            if (Greenfoot.isKeyDown("space") )
+            {
+                if (onGround())
+                jump();
+            }
         }
         
         
-        
-        animationTimer.mark();
-        
-        setImage(runRight[0]);
-    }
-    
-    public void idle()
-    {
-        
-        for(int i = 0; i < 9; i++)
+        private void jump()
         {
-            runRight[i] = new GreenfootImage("images/freeknight/png/Idle0"  + i +  ".png");
-            runRight[i].scale(150, 150);
+            setVSpeed(-16);
+            fall();
+        }
+        
+        public void fall()
+        {
+            setLocation ( getX(), getY() + vSpeed);
             
+            vSpeed = vSpeed + acceleration;
         }
         
-        for(int i = 0; i < idleLeft.length; i ++)
+        public void setVSpeed(int speed)
         {
-            runLeft[i] = new GreenfootImage("images/freeknight/png/Idle0" + i + ".png");    
-            runLeft[i].mirrorHorizontally();
-            runLeft[i].scale(150, 150);   
+            vSpeed = speed;
         }
         
-        
-        
-        animationTimer.mark();
-        
-        setImage(idleRight[0]);
-    
-    }
-    int imageIndex = 0;
-    public void runPlayer()
-    {
-        //Player animations
-        if(animationTimer.millisElapsed() < 40)
+        public boolean onGround()
         {
-            return;
+            Object under = getOneObjectAtOffset(0, getImage().getHeight()/2-8 , null);
+            return under != null;
         }
-        animationTimer.mark();
-        if(facing.equals("right"))
+        
+        private void checkFall()
         {
-            setImage(runRight[imageIndex]);
-            imageIndex = (imageIndex + 1) % runRight.length;    
+            if (onGround())
+            {
+                setVSpeed(0);
+            }
+            else 
+            {
+                fall();
+            }
         }
-        else
-        {
-            setImage(runLeft[imageIndex]);
-            imageIndex= (imageIndex + 1) % runLeft.length;
-        }
+        
         
     }
-    
-    public void idlePlayer()
-    {
-        //Player animations
-        if(animationTimer.millisElapsed() < 40)
-        {
-            return;
-        }
-        animationTimer.mark();
-        if(facing.equals("right"))
-        {
-            setImage(idleRight[imageIndex]);
-            imageIndex = (imageIndex + 1) % idleRight.length;    
-        }
-        else
-        {
-            setImage(idleLeft[imageIndex]);
-            imageIndex= (imageIndex + 1) % idleLeft.length;
-        }
-        
-    }
-    
-        
-    
-    public void act() 
-    {
-        if(Greenfoot.isKeyDown("left"))
-        {
-            move(-4);
-            facing = "left";
-            runPlayer();            
-        } 
-        else if(Greenfoot.isKeyDown("right"))
-        {
-            move(4);
-            facing = "right";
-            runPlayer();   
-            
-            
-        }
-        
 
-        
-        
-    }    
-}
+
+    
