@@ -1,3 +1,5 @@
+
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
@@ -10,7 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     {   
         private static final int speed = 7; // running speed (sideways)
         private int vSpeed = 0; 
-        private static final int acceleration = 2; 
+        private static final int gravtiy = 2; 
         GreenfootImage[] idleRight= new GreenfootImage[8];
         GreenfootImage[] idleLeft= new GreenfootImage[8];
         String facing = "right";
@@ -23,20 +25,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void act()
         {
+            checkCelling();
             if(Greenfoot.isKeyDown("left"))
             {
-                move(-7);
+                move(-10);
                 facing = "left";
                 animateElephant();
             } 
             else if(Greenfoot.isKeyDown("right"))
             {
-                move(7);
+                move(10);
                 facing = "right";
                 animateElephant();
             }
             checkFall();
             jumpingPlayer();
+           
         
         }
         
@@ -101,7 +105,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         {
             setLocation ( getX(), getY() + vSpeed);
             
-            vSpeed = vSpeed + acceleration;
+            vSpeed = vSpeed + gravtiy;
         }
         
         public void setVSpeed(int speed)
@@ -109,12 +113,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             vSpeed = speed;
         }
         
+        
         public boolean onGround()
         {
-            Object under = getOneObjectAtOffset(0, getImage().getHeight()/2-8 , null);
-            return under != null;
+            int spriteHeight= getImage().getHeight();
+            int lookForGround = spriteHeight/2;
+            
+            Actor Ground1 = getOneObjectAtOffset(0, lookForGround , null);
+            if(Ground1 == null)
+            return false;
+            else
+            {
+                moveToGround(Ground1);
+                return true;
+            }
         }
         
+        public void moveToGround(Actor ground)
+        {
+            int groundHeight = ground.getImage().getHeight();
+            int newY = ground.getY() - (groundHeight + getImage().getHeight()) /2;
+            setLocation(getX(), newY);
+        }
+        
+
         private void checkFall()
         {
             if (onGround())
@@ -127,6 +149,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             }
         }
         
+        
+        
+        public boolean checkCelling()
+        {
+            int spriteHeight= getImage().getHeight();
+            int lookForCelling = spriteHeight/2;
+            
+            Actor celling = getOneObjectAtOffset(0, -lookForCelling , null);
+            if(celling != null)
+            {
+                bopHead(celling);
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+        
+        public void bopHead(Actor celling)
+        {
+            int cellingHeight = celling.getImage().getHeight();
+            int newY = celling.getY() + (cellingHeight + getImage().getHeight()) /2;
+            setLocation(getX(), newY);
+            vSpeed = 2;
+        }
         
     }
 
