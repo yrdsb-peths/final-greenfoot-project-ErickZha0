@@ -40,7 +40,6 @@ public class Menu extends World
         Label label = new Label("Use \u2190 \u2192to Move", 40);
         Label label2 = new Label("Press <space> to Start", 30);
 
-        PlayerImage playerImage = new PlayerImage();
-        addObject(playerImage,256,384);
+        
     }
 }
