@@ -37,30 +37,19 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-        Ground1 ground1 = new Ground1();
-        addObject(ground1,61,673);
-
-        Ground1 ground1A = new Ground1();
-        addObject(ground1A,188,673);
-
-        Ground1 ground1B = new Ground1();
-        addObject(ground1B,315,673);
-
-        Ground1 ground1C = new Ground1();
-        addObject(ground1C,442,673);
-
-        Ground1 ground1D = new Ground1();
-        addObject(ground1D,569,673);
-
-        Ground1 ground1G = new Ground1();
-        addObject(ground1G,950,673);
+        for (int x = 61; x <= 4000; x += 127)
+        {
+            
+            {
+                addObject( new Ground1(), x, 673);
+            
+            }
+        }
         
-
+ 
         
-
     }
-    
-
+       
 }
 
 

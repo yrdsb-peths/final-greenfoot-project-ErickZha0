@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Scroller extends Actor
 {
-    public static int scrollX; //The variable used when scrolling.
+    public static int scrollX; 
 
     public Scroller()
     {
@@ -11,34 +11,34 @@ public class Scroller extends Actor
 
     public void setLocation()
     {
-        setLocation(getX() + scrollX, getY()); //Whatever direction the sprite is moves, the screen will scroll in that direction
+        setLocation(getX() + scrollX, getY()); 
     }
 
     public void checkKeyPress(int amount)
     {
         //This method makes the screen scroll when a movement key is pressed
-        if(Greenfoot.isKeyDown("a") &! Greenfoot.isKeyDown("d"))
+        if(Greenfoot.isKeyDown("left") &! Greenfoot.isKeyDown("right"))
         {
             scrollX = amount;
         }
-        else if(Greenfoot.isKeyDown("d") &! Greenfoot.isKeyDown("a"))
+        else if(Greenfoot.isKeyDown("right") &! Greenfoot.isKeyDown("left"))
         {
             scrollX = -amount;
         }
         else
         {
-            stopScroll(); //Calls the stopScroll() method
+            stopScroll(); 
         }
     }
 
     public void scrollingMethods()
     {
-        checkKeyPress(3); //Calls the checkKeyPress() method with an amount of 3
-        setLocation(); //Calls the setLocation() method
+        checkKeyPress(10); 
+        setLocation(); 
     }
 
     public static void stopScroll()
     {
-        scrollX = 0; //Sets the scrollX variable to 0
+        scrollX = 0; 
     }
 }
