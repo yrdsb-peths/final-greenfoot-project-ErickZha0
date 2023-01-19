@@ -41,6 +41,6 @@ public class Menu extends World
         Label label2 = new Label("Press <space> to Start", 30);
 
         PlayerImage playerImage = new PlayerImage();
-        addObject(playerImage,256,384);
+        addObject(playerImage,264,369);
     }
 }
