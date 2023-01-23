@@ -12,13 +12,13 @@ public class spike extends OBSTACLES
     {
         //This method makes the spike image smaller
         GreenfootImage myImage = getImage();
-        int myNewHeight = (int)myImage.getHeight()/4;
-        int myNewWidth = (int)myImage.getWidth()/4;
+        int myNewHeight = (int)myImage.getHeight()/16;
+        int myNewWidth = (int)myImage.getWidth()/16;
         myImage.scale(myNewWidth, myNewHeight);
     }
     
     public void act() 
     {
-        scrollingMethods(); //Calls the scrollingMethods() method
+        scrollingMethods(); 
     }
 }

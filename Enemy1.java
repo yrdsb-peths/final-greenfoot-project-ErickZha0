@@ -12,8 +12,32 @@ public class Enemy1 extends OBSTACLES
      * Act - do whatever the Enemy1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public void act()
+    private int movingCounter = 0;
+    
+    public void act() 
     {
-        // Add your action code here.
+        scrollingMethods(); 
+        
+        // the Enemy object move from right to left then left to right
+        if (movingCounter < 100) {
+            setLocation(getX() + 3, getY()); 
+        }
+        else if (movingCounter < 200) {
+            setLocation(getX() - 3, getY());
+        }
+        else {
+            movingCounter = 0;
+        }
+        movingCounter++; 
+    }
+    
+    public Enemy1()
+    {
+        GreenfootImage myImage = getImage();
+        int myNewHeight = (int)myImage.getHeight()/6;
+        int myNewWidth = (int)myImage.getWidth()/6;
+        myImage.scale(myNewWidth, myNewHeight);
+        
+        
     }
 }

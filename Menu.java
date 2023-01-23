@@ -13,8 +13,9 @@ public class Menu extends World
     public Menu() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 
-
+        Greenfoot.start();
         addObject(titleLabel, getWidth()/2, getHeight()/2);
+   
         prepare();
     }
 
@@ -26,6 +27,7 @@ public class Menu extends World
         if(Greenfoot.isKeyDown("space")) {
             MyWorld gameWorld = new MyWorld();
             Greenfoot.setWorld(gameWorld);
+          
         }
     }
     
@@ -35,10 +37,18 @@ public class Menu extends World
      */
     private void prepare()
     {
+        
+        titleLabel.setLocation(300,60);
+
+        Label label = new Label("Use \u2190 \u2191 \u2192 to Move", 50);
+        addObject(label,700,400);
+
+        Label label2 = new Label("Press <space> use BOMB", 50);
+        addObject(label2,700,500);
+        
         titleLabel.setLocation(500,100);
 
-        Label label = new Label("Use \u2190 \u2192to Move", 40);
-        Label label2 = new Label("Press <space> to Start", 30);
+
 
         PlayerImage playerImage = new PlayerImage();
         addObject(playerImage,264,369);

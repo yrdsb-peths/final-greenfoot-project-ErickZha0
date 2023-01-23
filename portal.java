@@ -6,4 +6,13 @@ public class portal extends OBJECTS
     {
         scrollingMethods(); //Calls the scrollingMethods() method
     }
+    
+    public portal() 
+    {
+        GreenfootImage myImage = getImage();
+        int myNewHeight = (int)myImage.getHeight()/4;
+        int myNewWidth = (int)myImage.getWidth()/4;
+        myImage.scale(myNewWidth, myNewHeight);
+        
+    }
 }

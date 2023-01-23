@@ -34,28 +34,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void act()
         {
-            checkKeys(); //Calls checkKeys() method
-            checkFall(); //Calls checkFall() method
-            platformAbove(); //Calls platformAbove() method
-            checkRightWalls(); //Calls checkRightWalls() method
-            checkObstacles(); //Calls checkObstacles() method
-            levelCompletedScreen(); //Calls levelCompletedScreen() method
+            
+            checkFall(); 
+            platformAbove();
+            checkRightWalls(); 
+            checkObstacles(); 
+            levelCompletedScreen(); 
             if(Greenfoot.isKeyDown("a"))
             {
-                move(-3);
+                move(-2);
                 facing = "left";
                 animatePlayer();
             } 
             else if(Greenfoot.isKeyDown("d"))
             {
-                move(3);
+                move(2);
                 facing = "right";
                 animatePlayer();
             }
             else if(Greenfoot.isKeyDown("a") & Greenfoot.isKeyDown("d"))
             {
+                move(0);
                 stopWalking();
             }
+            checkKeys(); 
         }
 
         
@@ -81,7 +83,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         int imageIndex = 0;
         public void animatePlayer()
         {
-            //elephant animations
+            // animations
             if(animationTimer.millisElapsed() < 50)
             {
                 return;
@@ -113,6 +115,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         private void checkKeys()
         {
+
             //The checkKeys() method makes they controls for the game functional
             isKeyPressed = false;
             if (Greenfoot.isKeyDown("a")&&(Greenfoot.isKeyDown("d"))) //When both "a" and "d" keys are pressed at the same time then stop sprite from moving.
@@ -121,9 +124,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             }
             else if (Greenfoot.isKeyDown("d")) //If the "d" key is pressed then move the sprite to the right
             {
-                moveRight(); //Calls the moveRight() method to make the sprite move right and to animate the sprite movement
+                moveRight(); 
                 isKeyPressed = true;
-                facingRight = true; //Since the sprite will be facing right when the "d" key is pressed the facingRight variable will change to True
+                facingRight = true; 
             }
             else if (Greenfoot.isKeyDown("a")) //If the "a" key is pressed then move the sprite to the left
             {
@@ -264,7 +267,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public boolean checkRightWalls()
         {
-            //This method explains to the sprite() class what the side of block is
+
             int spriteWidth = getImage().getHeight();
             int xDistance = (int)(spriteWidth/2);
             Actor rightWall = getOneObjectAtOffset(xDistance, 0, Ground1.class);
@@ -275,16 +278,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             else
             {
                 stopByRightWall(rightWall);
+            
                 return true;
             }
         }
         
         public void stopByRightWall(Actor rightWall)
         {
-            //This method stops the sprite from travelling through the side of a block
+            //stops the player from travelling through the side of a block
             int wallWidth = rightWall.getImage().getWidth();
             int newX = rightWall.getX() - (wallWidth + getImage().getWidth())/2;
             setLocation(newX -5, getY());
+  
         }
         
         public boolean canSee(Class clss){
@@ -294,16 +299,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void checkObstacles()
         {
-            //This method checks if the sprite is touching an enemy or an obstacle
+            
             
             Actor obstacles = getOneIntersectingObject(OBSTACLES.class);
             if (obstacles != null)
             {
                 if(touchingObstacles == false)
                 {
-                    //If the sprite is touching an enemy or an obstacle then subtract the lives counter by one
-                    ((MyWorld)getWorld()).getLives().subtractLives();
-                    setLocation(25,0); //Makes the sprite respawn after losing a life
+                    //If the playeris touching an enemy or an obstacle then subtract the lives counter by one
+                    setLocation(25,0); //Makes the player respawn after losing a life
                     touchingObstacles = true;
                 }
             } 
@@ -315,7 +319,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void levelCompletedScreen()
         {
-            //If the sprite is touching the portal object then call the levelCompleted() method from the MyWorld() class
+            
             if (isTouching(portal.class))
             {
                 ((MyWorld)getWorld()).levelCompleted();

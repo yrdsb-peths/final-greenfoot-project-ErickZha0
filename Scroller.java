@@ -33,7 +33,7 @@ public class Scroller extends Actor
 
     public void scrollingMethods()
     {
-        checkKeyPress(5); 
+        checkKeyPress(8); 
         setLocation(); 
     }
 
@@ -41,4 +41,6 @@ public class Scroller extends Actor
     {
         scrollX = 0;
     }
+    
+
 }
