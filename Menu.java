@@ -9,14 +9,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Menu extends World
 {
     Label titleLabel = new Label("SUPER BARIO", 80);
-
+    GreenfootSound backgroundMusic = new GreenfootSound("Music1.mp3");
     public Menu() {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 
         Greenfoot.start();
+        backgroundMusic.playLoop();
         addObject(titleLabel, getWidth()/2, getHeight()/2);
-   
         prepare();
+        
     }
 
     /*
