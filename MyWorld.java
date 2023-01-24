@@ -163,10 +163,28 @@ public class MyWorld extends World
         addObject(spike123,5400,592);
         
         spike spike1234 = new spike();
-        addObject(spike1234,5400,592);
+        addObject(spike1234,5600,592);
         
         spike spike12345 = new spike();
-        addObject(spike12345,5600,592);
+        addObject(spike12345,5800,592);
+        
+        spike spikez = new spike();
+        addObject(spikez,6000,592);
+              
+        spike spikex = new spike();
+        addObject(spikex,6200,592);
+        
+        spike spikey = new spike();
+        addObject(spikey,6400,592);
+        
+        spike spikek = new spike();
+        addObject(spikek,6600,592);
+        
+        spike spikep = new spike();
+        addObject(spikep,6800,592);
+        
+        spike spikea = new spike();
+        addObject(spikea,7000,592);
         
         Crate crateg = new Crate();
         addObject(crateg,5200,400);
@@ -190,10 +208,15 @@ public class MyWorld extends World
         Platform2 platformB = new Platform2();
         addObject(platformB,6828,340);
 
-        Platform3 platformC = new Platform3();
+        Platform2 platformC = new Platform2();
         addObject(platformC,6956,340);
         
+        Platform3 platformDD = new Platform3();
+        addObject(platformDD,7084,340);
         
+        
+        spike spikepa = new spike();
+        addObject(spikepa,6956,280);
         
         
         Platform1 platform20 = new Platform1();
@@ -208,7 +231,41 @@ public class MyWorld extends World
         Enemy1 enemy10 = new Enemy1();
         addObject(enemy10,7400,230);
 
+        Crate crate12 = new Crate();
+        addObject(crate12,8000,571);
+
+        Crate crate21= new Crate();
+        addObject(crate21,8080,570);
+
+        Crate crate32 = new Crate();
+        addObject(crate32,8080,494);
+
+        Platform1 platform113 = new Platform1();
+        addObject(platform113,8400,339);
+
+        Platform2 platform222 = new Platform2();
+        addObject(platform222,8520,340);
+
+        Platform3 platform333 = new Platform3();
+        addObject(platform333,8640,340);   
         
+        spike spike44 = new spike();
+        addObject(spike44,8740,592);
+        
+        Crate crate221= new Crate();
+        addObject(crate221,9600,400);
+        
+        Crate crate231= new Crate();
+        addObject(crate231,9700,400);
+        
+        Crate crate421= new Crate();
+        addObject(crate421,9800,400);
+        
+        Crate crate521= new Crate();
+        addObject(crate521,9900,400);
+        
+        Enemy1 enemy122 = new Enemy1();
+        addObject(enemy122,9600,592);
  
     }
 }
