@@ -20,9 +20,6 @@ public class Menu extends World
         
     }
 
-    /*
-     * The main world act loop
-     */
     public void act() {
         // Starts game if user presses the space bar
         if(Greenfoot.isKeyDown("space")) {
