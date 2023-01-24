@@ -38,7 +38,7 @@ public class Menu extends World
         
         titleLabel.setLocation(300,60);
 
-        Label label = new Label("Use \u2190 \u2191 \u2192 to Move", 50);
+        Label label = new Label("Use W A D to Move", 50);
         addObject(label,700,400);
 
         Label label2 = new Label("Press <space> use BOMB", 50);

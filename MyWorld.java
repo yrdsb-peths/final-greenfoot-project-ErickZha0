@@ -26,7 +26,7 @@ public class MyWorld extends World
 
     private void groundAndObstcales()
     {
-        for (int x = 61; x <= 6000; x += 127)
+        for (int x = 61; x <= 12000; x += 127)
         {
 
             {
@@ -102,8 +102,8 @@ public class MyWorld extends World
         Enemy1 enemy3 = new Enemy1();
         addObject(enemy3,2900,571);
 
-        Platform2 platform7 = new Platform2();
-        addObject(platform7,1650,340);
+        Crate Crate123 = new Crate();
+        addObject(Crate123,1650,340);
 
         Platform1 platform4 = new Platform1();
         addObject(platform4,2000,339);
@@ -171,8 +171,44 @@ public class MyWorld extends World
         Crate crateg = new Crate();
         addObject(crateg,5200,400);
         
-        portal portal = new portal();
-        addObject(portal, 5900,350);
+        Crate spike1232 = new Crate();
+        addObject(spike1232,5600,450);
         
+        Platform1 platform10 = new Platform1();
+        addObject(platform10,6000,340);
+
+        Platform2 platform11 = new Platform2();
+        addObject(platform11,6128,340);
+
+        Platform3 platform12 = new Platform3();
+        addObject(platform12,6256,340);
+        
+        
+        Platform1 platformA = new Platform1();
+        addObject(platformA,6700,340);
+
+        Platform2 platformB = new Platform2();
+        addObject(platformB,6828,340);
+
+        Platform3 platformC = new Platform3();
+        addObject(platformC,6956,340);
+        
+        
+        
+        
+        Platform1 platform20 = new Platform1();
+        addObject(platform20,7400,300);
+
+        Platform2 platform21 = new Platform2();
+        addObject(platform21,7528,300);
+
+        Platform3 platform22 = new Platform3();
+        addObject(platform22,7656,300);
+        
+        Enemy1 enemy10 = new Enemy1();
+        addObject(enemy10,7400,230);
+
+        
+ 
     }
 }
