@@ -266,6 +266,9 @@ public class MyWorld extends World
         
         Enemy1 enemy122 = new Enemy1();
         addObject(enemy122,9600,592);
+        
+        portal portal= new portal();
+        addObject(enemy122,11000,592);
  
     }
 }
