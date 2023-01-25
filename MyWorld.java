@@ -213,11 +213,8 @@ public class MyWorld extends World
         
         Platform3 platformDD = new Platform3();
         addObject(platformDD,7084,340);
-        
-        
-        spike spikepa = new spike();
-        addObject(spikepa,6956,280);
-        
+          
+
         
         Platform1 platform20 = new Platform1();
         addObject(platform20,7400,300);
@@ -267,8 +264,29 @@ public class MyWorld extends World
         Enemy1 enemy122 = new Enemy1();
         addObject(enemy122,9600,592);
         
+        Platform1 platformA2 = new Platform1();
+        addObject(platformA2,11000,340);
+
+        Platform2 platformB2 = new Platform2();
+        addObject(platformB2,11128,340);
+
+        Platform2 platformC2 = new Platform2();
+        addObject(platformC2,11256,340);
+        
+        Platform3 platformDD2 = new Platform3();
+        addObject(platformDD2,11384,340);
+          
+        Crate crate123 = new Crate();
+        addObject(crate123,10500,571);
+
+        Crate crate213= new Crate();
+        addObject(crate213,10580,570);
+
+        Crate crate323 = new Crate();
+        addObject(crate323,10580,494);
+        
         portal portal= new portal();
-        addObject(enemy122,11000,592);
+        addObject(portal,12000,250);
  
     }
 }
