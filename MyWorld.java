@@ -26,6 +26,7 @@ public class MyWorld extends World
 
     private void groundAndObstcales()
     {
+        //the grorund
         for (int x = 61; x <= 12000; x += 127)
         {
 
@@ -66,7 +67,7 @@ public class MyWorld extends World
      */
     private void prepare()
     {
-
+    
         Crate crate = new Crate();
         addObject(crate,750,571);
 

@@ -11,7 +11,7 @@ public class Scroller extends Actor
 
     public void setLocation()
     {
-        setLocation(getX() + scrollX, getY()); //Whatever direction the sprite is moves, the screen will scroll in that direction
+        setLocation(getX() + scrollX, getY()); //Whatever direction the player is moves, the screen will scroll in that direction
     }
 
     public void checkKeyPress(int amount)

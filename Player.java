@@ -15,14 +15,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         GreenfootImage[] idleLeft= new GreenfootImage[8];
         String facing = "right";
         SimpleTimer animationTimer = new SimpleTimer();
-        private boolean touchingObstacles; //To check if the sprite is touching an enemy or obstacle
+        private boolean touchingObstacles; //To check if the player is touching an enemy or obstacle
         private Scroller scroll;
-        private int speed = 1; //Speed of sprite movement
-        private int vSpeed = 0; //Fall speed of sprite
-        private int acceleration = 1; //Acceleration of the fall speed of the sprite
-        private int jumpStrength = 19; //How high the sprite can jump
-        private boolean jumping; //To check if the sprite is jumping
-        private boolean facingRight; //To check if the sprite is facing right
+        private int speed = 1; //Speed of player movement
+        private int vSpeed = 0; //Fall speed of player
+        private int acceleration = 1; //Acceleration of the fall speed of the player
+        private int jumpStrength = 19; //How high the player can jump
+        private boolean jumping; //To check if the player is jumping
+        private boolean facingRight; //To check if the player is facing right
         private boolean isKeyPressed; //To check if the user is pressing a key
         private boolean spaceDown; //To check if the user is pressing the space key
 
@@ -122,71 +122,69 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             {
                 stopWalking();
             }
-            else if (Greenfoot.isKeyDown("d")) //If the "d" key is pressed then move the sprite to the right
+            else if (Greenfoot.isKeyDown("d")) //If the "d" key is pressed then move the player to the right
             {
                 moveRight(); 
                 isKeyPressed = true;
                 facingRight = true; 
             }
-            else if (Greenfoot.isKeyDown("a")) //If the "a" key is pressed then move the sprite to the left
+            else if (Greenfoot.isKeyDown("a")) //If the "a" key is pressed then move the player to the left
             {
-                moveLeft(); //Calls the moveLeft() method to make the sprite move left and to animate the sprite movement
+                moveLeft(); //Calls the moveLeft() method to make the player move left and to animate the player movement
                 isKeyPressed = true;
-                facingRight = false; //facingRight will be false because the sprite will be facing left when the "a" key is pressed
+                facingRight = false; //facingRight will be false because the player will be facing left when the "a" key is pressed
             }
-            if(Greenfoot.isKeyDown("w")&& jumping == false) //If the sprite is not jumping and the "w" key is pressed then make the sprite jump
+            if(Greenfoot.isKeyDown("w")&& jumping == false) //If the player is not jumping and the "w" key is pressed then make the player jump
             {
                 isKeyPressed = true;
-                jump(); //Calls the jump() method to make the sprite jump
+                jump(); //Calls the jump() method to make the player jump
             }
-            if(!spaceDown && Greenfoot.isKeyDown("space")) //If they space key is pressed and spaceDown is false then shoot a ninja star
+            if(!spaceDown && Greenfoot.isKeyDown("space")) //If they space key is pressed and spaceDown is false then shoot a bomb
             {
                 spaceDown = true;
                 shruikenRight right = new shruikenRight(); //The shruikenRight() class is called
                 shruikenLeft left = new shruikenLeft(); //The shruikenLeft() class is called
-                if(facingRight == true) //If the sprite is facing right then shoot the ninja star to the right
+                if(facingRight == true) //If the sprite is facing right then shoot the bomb to the right
                 {
-                    getWorld().addObject(right, getX(), getY()); //Adds the ninja star object and shoots it to the right
+                    getWorld().addObject(right, getX(), getY()); //Adds the bomb star object and shoots it to the right
                 }
-                if(facingRight == false) //If the sprite is facing left then shoot the ninja star to the left 
+                if(facingRight == false) //If the player is facing left then shoot the bomb to the left 
                 {
-                    getWorld().addObject(left, getX(), getY()); //Adds the ninja star object and shoots it to the left
+                    getWorld().addObject(left, getX(), getY()); //Adds the bomb object and shoots it to the left
                 }
             }
-            if(spaceDown && !Greenfoot.isKeyDown("space")) //If spaceDown is true and the space key is not pressed then change spaceDown to false
+            if(spaceDown && !Greenfoot.isKeyDown("space")) 
             {
                 spaceDown = false;
             }
-            if (!isKeyPressed) //If no key is pressed then make the sprite stop walking
+            if (!isKeyPressed) //If no key is pressed then make the player stop walking
             {
-                stopWalking(); //Calls the stopWalking() method which makes the sprite stop walking
+                stopWalking(); 
             }
         }
         
         public void jump() 
         {
-            //The jump() method allows the sprite to jump and once the sprite jumps it will move back to the ground
-            vSpeed = vSpeed - jumpStrength; //vSpeed which is short for velocity speed is equal to vSpeed subtracted by jumpStrength
-            fall(); //Calls the fall() method which makes the sprite return back to the ground
+            //The jump() method allows the player to jump and once the player jumps it will move back to the ground
+            vSpeed = vSpeed - jumpStrength; 
+            fall(); 
         }
         
         public void moveRight()
         {
-            //The method allows the sprite to move to the right and it animates the sprite movement
-            setLocation(getX() + speed, getY()); //Makes the sprite to the right by adding the X position for the sprite by the speed variable
+            
+            setLocation(getX() + speed, getY()); 
             
         }
         
         public void moveLeft()
         {
-            //This method allows the sprite to move to the right and it animates the sprite movement
-            setLocation(getX() - speed, getY()); //Makes the sprite move to the left by subtracting the X position for the sprite by the speed variable
+            setLocation(getX() - speed, getY());
     
         }
         
         private void fall()
         {
-            //If vSpeed is less than or equal to 9 then add the vSpeed variable with the acceleration variable
             setLocation(getX(), getY() + vSpeed);
             if (vSpeed <=9)
             {
@@ -197,9 +195,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         private void checkFall()
         {
-            //This method is to check if the sprite is falling or on the ground
+            //This method is to check if the player is falling or on the ground
             
-            //If the sprite is on the ground then set vSpeed to 0 other than that call the fall() method
+
             if(onGround())
             {
                 vSpeed = 0;
@@ -212,7 +210,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public boolean onGround()
         {
-            //This method explains to the sprite() class what the ground is
+            //This method explains to the player() class what the ground is
             int spriteHeight = getImage().getHeight();
             int yDistance = (int)(spriteHeight / 2 + 5);
             
@@ -231,7 +229,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void moveToGround(Actor ground)
         {
-            //This method moves the sprite to the ground
+            //This method moves the player to the ground
             int groundHeight = ground.getImage().getHeight();
             int newY = ground.getY() - (groundHeight + getImage().getHeight())/2;
             setLocation(getX(), newY);
@@ -240,7 +238,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public boolean platformAbove()
         {
-            //This method explains to the sprite() class what a platform above it is
+            //This method explains to the player() class what a platform above it is
             int spriteHeight = getImage().getHeight();
             int yDistance = (int)(spriteHeight / -2);
             
@@ -259,7 +257,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
         
         public void bopHead(Actor ceiling)
         {
-            //This method stops the sprite from travelling through a platform that is above it
+            //This method stops the player from travelling through a platform that is above it
             int ceilingHeight = ceiling.getImage().getHeight();
             int newY = ceiling.getY() + (ceilingHeight + getImage().getHeight())/2;
             setLocation(getX(), newY);
@@ -306,7 +304,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
             {
                 if(touchingObstacles == false)
                 {
-                    //If the playeris touching an enemy or an obstacle then subtract the lives counter by one
+                    //If the player is touching an enemy or an obstacle then subtract the lives counter by one
                     setLocation(25,0); //Makes the player respawn after losing a life
                     touchingObstacles = true;
                 }
